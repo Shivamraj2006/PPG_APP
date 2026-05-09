@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GLUCOWAVE Splash Screen</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed-variant": "#514441",
+                    "on-primary": "#00363d",
+                    "surface-container-highest": "#333344",
+                    "tertiary": "#fce7e3",
+                    "on-tertiary-fixed": "#241917",
+                    "secondary-fixed-dim": "#87d5c8",
+                    "primary": "#bff5ff",
+                    "on-secondary": "#003731",
+                    "tertiary-fixed-dim": "#d6c2be",
+                    "surface": "#121221",
+                    "on-error": "#690005",
+                    "surface-container-high": "#292839",
+                    "error-container": "#93000a",
+                    "surface-container-lowest": "#0d0d1c",
+                    "primary-container": "#89dceb",
+                    "surface-variant": "#333344",
+                    "on-secondary-fixed": "#00201c",
+                    "surface-dim": "#121221",
+                    "on-secondary-fixed-variant": "#005048",
+                    "outline-variant": "#3e484b",
+                    "surface-container-low": "#1a1a2a",
+                    "inverse-on-surface": "#2f2f40",
+                    "inverse-surface": "#e3e0f7",
+                    "on-primary-container": "#00626d",
+                    "primary-fixed-dim": "#80d3e2",
+                    "outline": "#889395",
+                    "inverse-primary": "#006875",
+                    "on-tertiary-container": "#645552",
+                    "surface-tint": "#80d3e2",
+                    "surface-container": "#1e1e2e",
+                    "surface-bright": "#383849",
+                    "error": "#ffb4ab",
+                    "secondary-fixed": "#a3f1e4",
+                    "on-tertiary": "#3a2e2b",
+                    "primary-fixed": "#9cefff",
+                    "secondary": "#87d5c8",
+                    "on-surface-variant": "#bec8cb",
+                    "tertiary-fixed": "#f3deda",
+                    "on-surface": "#e3e0f7",
+                    "on-background": "#e3e0f7",
+                    "on-primary-fixed": "#001f24",
+                    "secondary-container": "#02655b",
+                    "on-secondary-container": "#91dfd2",
+                    "on-error-container": "#ffdad6",
+                    "background": "#121221",
+                    "on-primary-fixed-variant": "#004f58",
+                    "tertiary-container": "#dfcbc7"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "4px",
+                    "2xl": "48px",
+                    "sm": "8px",
+                    "gutter-mobile": "12px",
+                    "lg": "24px",
+                    "xl": "32px",
+                    "margin-mobile": "20px",
+                    "md": "16px",
+                    "xs": "4px"
+            },
+            "fontFamily": {
+                    "label-bold": ["Inter"],
+                    "headline-md": ["Space Grotesk"],
+                    "data-mono": ["Space Grotesk"],
+                    "headline-lg": ["Space Grotesk"],
+                    "body-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "display-bold": ["Space Grotesk"]
+            },
+            "fontSize": {
+                    "label-bold": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                    "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "display-bold": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glow-radius {
+            background: radial-gradient(circle, rgba(137, 220, 235, 0.15) 0%, rgba(30, 30, 46, 0) 70%);
+        }
+        .logo-glow {
+            filter: drop-shadow(0 0 15px rgba(137, 220, 235, 0.6));
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-container m-0 p-0 overflow-hidden select-none">
+<!-- Splash Container -->
+<div class="relative min-h-screen w-full flex flex-col items-center justify-center bg-surface-container overflow-hidden">
+<!-- Ambient Radial Background Glow -->
+<div class="absolute inset-0 glow-radius pointer-events-none"></div>
+<!-- Decorative Tech Pattern (Subtle Glassmorphism Grid) -->
+<div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(#89dceb 1px, transparent 1px); background-size: 40px 40px;"></div>
+<!-- Main Content Canvas -->
+<div class="relative z-10 flex flex-col items-center justify-center px-margin-mobile text-center">
+<!-- Elegant Logo Centerpiece -->
+<div class="relative mb-xl group">
+<!-- Outer Ring Glow -->
+<div class="absolute inset-0 scale-150 bg-primary-container/10 blur-3xl rounded-full"></div>
+<!-- Logo Construct -->
+<div class="relative w-32 h-32 md:w-40 md:h-40 flex items-center justify-center bg-surface-container-low rounded-full border border-primary-container/20 logo-glow">
+<!-- Icon SVG representing 'G' + Waveform -->
+<svg class="w-20 h-20 md:w-24 md:h-24 text-primary-container" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" viewbox="0 0 100 100">
+<!-- The 'G' Shape -->
+<path d="M75 35C70 28 60 25 50 25C30 25 20 40 20 50C20 60 30 75 50 75C65 75 75 65 75 55V50H55"></path>
+<!-- Integrated Heartbeat/Glucose Wave -->
+<path d="M20 50H35L42 30L58 70L65 50H80" stroke-width="4"></path>
+</svg>
+</div>
+</div>
+<!-- Branding -->
+<div class="space-y-sm">
+<h1 class="font-display-bold text-display-bold text-primary-container tracking-wider drop-shadow-sm">
+                    GLUCOWAVE
+                </h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-[280px] leading-relaxed">
+                    Non-invasive Glucose Monitoring via USB-C Sensor
+                </p>
+</div>
+</div>
+<!-- Bottom Status / Loading Indicator -->
+<div class="absolute bottom-2xl left-0 w-full flex flex-col items-center px-margin-mobile">
+<div class="flex items-center gap-md mb-lg">
+<!-- Connectivity "Breathing" Indicator -->
+<div class="w-unit h-unit rounded-full bg-primary-container animate-pulse shadow-[0_0_8px_rgba(137,220,235,0.8)]"></div>
+<span class="font-label-bold text-label-bold text-primary-container/60 tracking-widest uppercase">INITIALIZING SENSOR</span>
+</div>
+<!-- Sophisticated Loading Bar -->
+<div class="w-full max-w-[200px] h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary-container rounded-full w-[60%] shadow-[0_0_10px_rgba(137,220,235,0.4)]"></div>
+</div>
+</div>
+<!-- Tech Details Footer (Bento Style Sub-info) -->
+<div class="absolute bottom-sm left-0 w-full px-lg flex justify-between items-center opacity-40">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-[14px] text-on-surface" data-icon="sensors">sensors</span>
+<span class="font-label-bold text-[10px] text-on-surface uppercase tracking-tighter">USB-C Protocol v2.4</span>
+</div>
+<div class="font-label-bold text-[10px] text-on-surface uppercase tracking-tighter">
+                © 2024 GLUCOWAVE LABS
+            </div>
+</div>
+</div>
+<!-- Background Elements (Asymmetric Layout Enhancers) -->
+<div class="fixed top-[-10%] right-[-10%] w-[40%] h-[40%] bg-primary-container/5 rounded-full blur-[100px] pointer-events-none"></div>
+<div class="fixed bottom-[-5%] left-[-5%] w-[30%] h-[30%] bg-primary-container/5 rounded-full blur-[80px] pointer-events-none"></div>
+</body></html>

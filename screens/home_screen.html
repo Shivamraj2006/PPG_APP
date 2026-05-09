@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#514441",
+                        "on-primary": "#00363d",
+                        "surface-container-highest": "#333344",
+                        "tertiary": "#fce7e3",
+                        "on-tertiary-fixed": "#241917",
+                        "secondary-fixed-dim": "#87d5c8",
+                        "primary": "#bff5ff",
+                        "on-secondary": "#003731",
+                        "tertiary-fixed-dim": "#d6c2be",
+                        "surface": "#121221",
+                        "on-error": "#690005",
+                        "surface-container-high": "#292839",
+                        "error-container": "#93000a",
+                        "surface-container-lowest": "#0d0d1c",
+                        "primary-container": "#89dceb",
+                        "surface-variant": "#333344",
+                        "on-secondary-fixed": "#00201c",
+                        "surface-dim": "#121221",
+                        "on-secondary-fixed-variant": "#005048",
+                        "outline-variant": "#3e484b",
+                        "surface-container-low": "#1a1a2a",
+                        "inverse-on-surface": "#2f2f40",
+                        "inverse-surface": "#e3e0f7",
+                        "on-primary-container": "#00626d",
+                        "primary-fixed-dim": "#80d3e2",
+                        "outline": "#889395",
+                        "inverse-primary": "#006875",
+                        "on-tertiary-container": "#645552",
+                        "surface-tint": "#80d3e2",
+                        "surface-container": "#1e1e2e",
+                        "surface-bright": "#383849",
+                        "error": "#ffb4ab",
+                        "secondary-fixed": "#a3f1e4",
+                        "on-tertiary": "#3a2e2b",
+                        "primary-fixed": "#9cefff",
+                        "secondary": "#87d5c8",
+                        "on-surface-variant": "#bec8cb",
+                        "tertiary-fixed": "#f3deda",
+                        "on-surface": "#e3e0f7",
+                        "on-background": "#e3e0f7",
+                        "on-primary-fixed": "#001f24",
+                        "secondary-container": "#02655b",
+                        "on-secondary-container": "#91dfd2",
+                        "on-error-container": "#ffdad6",
+                        "background": "#121221",
+                        "on-primary-fixed-variant": "#004f58",
+                        "tertiary-container": "#dfcbc7"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "2xl": "48px",
+                        "sm": "8px",
+                        "gutter-mobile": "12px",
+                        "lg": "24px",
+                        "xl": "32px",
+                        "margin-mobile": "20px",
+                        "md": "16px",
+                        "xs": "4px"
+                    },
+                    "fontFamily": {
+                        "label-bold": ["Inter"],
+                        "headline-md": ["Space Grotesk"],
+                        "data-mono": ["Space Grotesk"],
+                        "headline-lg": ["Space Grotesk"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-bold": ["Space Grotesk"]
+                    },
+                    "fontSize": {
+                        "label-bold": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                        "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "display-bold": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glowing-button-halo {
+            box-shadow: 0 0 30px 10px rgba(137, 221, 235, 0.25), inset 0 0 15px rgba(137, 221, 235, 0.4);
+        }
+        .status-pill-glow {
+            box-shadow: 0 0 10px rgba(34, 197, 94, 0.4);
+        }
+        .bg-mesh {
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(137, 220, 235, 0.05) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(145, 223, 210, 0.05) 0px, transparent 50%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 bg-[#1e1e2e]/80 backdrop-blur-lg border-b border-[#313244] h-16 flex justify-between items-center px-5">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#89dceb] text-xl" style="font-variation-settings: 'FILL' 1;">waves</span>
+<span class="font-['Space_Grotesk'] font-bold tracking-wider text-xl text-[#89dceb] drop-shadow-[0_0_8px_rgba(137,220,235,0.5)]">GLUCOWAVE</span>
+</div>
+<!-- Status Pill -->
+<div class="flex items-center gap-2 px-3 py-1.5 bg-[#313244] border border-[#45475a] rounded-full">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-green-500 status-pill-glow"></span>
+</span>
+<span class="text-[10px] font-label-bold uppercase tracking-widest text-[#a6adc8]">Status: Sensor Connected</span>
+</div>
+</header>
+<main class="min-h-screen pt-24 pb-32 px-margin-mobile flex flex-col items-center justify-between bg-mesh">
+<!-- Dashboard Summary Grid -->
+<div class="w-full max-w-lg grid grid-cols-2 gap-4 mb-xl">
+<div class="bg-surface-container rounded-2xl p-md border border-[#313244] shadow-lg">
+<p class="text-[10px] font-label-bold uppercase text-[#6c7086] mb-1">Last Reading</p>
+<div class="flex items-baseline gap-1">
+<span class="font-display-bold text-headline-lg text-[#89dceb]">112</span>
+<span class="font-label-bold text-[#6c7086]">mg/dL</span>
+</div>
+</div>
+<div class="bg-surface-container rounded-2xl p-md border border-[#313244] shadow-lg">
+<p class="text-[10px] font-label-bold uppercase text-[#6c7086] mb-1">Daily Range</p>
+<div class="flex items-baseline gap-1">
+<span class="font-display-bold text-headline-lg text-secondary">94%</span>
+<span class="font-label-bold text-[#6c7086]">Target</span>
+</div>
+</div>
+</div>
+<!-- Primary Action Area: Glowing Button -->
+<div class="flex-grow flex flex-col items-center justify-center relative w-full">
+<!-- Decorative Background Element -->
+<div class="absolute w-64 h-64 bg-primary/5 rounded-full blur-3xl -z-10"></div>
+<button class="group relative w-64 h-64 rounded-full bg-[#1e1e2e] border-4 border-[#313244] flex flex-col items-center justify-center transition-all duration-300 active:scale-95 glowing-button-halo hover:border-primary-container/40">
+<!-- Inner Glow Ring -->
+<div class="absolute inset-4 rounded-full border border-primary/20 animate-pulse"></div>
+<span class="material-symbols-outlined text-primary-container text-5xl mb-4 transition-transform group-hover:scale-110" style="font-variation-settings: 'wght' 200;">sensors</span>
+<span class="font-headline-md text-primary-container text-center px-8 leading-tight tracking-tight">START MEASUREMENT</span>
+<!-- Orbiting Detail -->
+<div class="absolute inset-0 rounded-full border border-dashed border-[#45475a] opacity-50"></div>
+</button>
+<p class="mt-xl text-[#a6adc8] font-body-md text-center max-w-xs opacity-70">
+                Ensure your device is connected and place your finger on the sensor to begin analysis.
+            </p>
+</div>
+<!-- Visual Guidance Section -->
+<div class="w-full max-w-sm mt-2xl px-lg">
+<div class="relative bg-surface-container-low rounded-3xl p-lg border border-[#313244]/50 overflow-hidden">
+<div class="flex items-center justify-center space-x-8 relative">
+<!-- Phone Illustration -->
+<div class="w-16 h-28 bg-[#313244] rounded-xl border border-[#45475a] relative p-1.5 flex flex-col items-center">
+<div class="w-6 h-1 bg-[#1e1e2e] rounded-full mb-1"></div>
+<div class="w-full h-full bg-[#1e1e2e] rounded-md flex items-center justify-center">
+<span class="material-symbols-outlined text-[10px] text-[#45475a]">waves</span>
+</div>
+<!-- Connection Cable -->
+<div class="absolute -bottom-4 left-1/2 -translate-x-1/2 w-1 h-4 bg-[#45475a]"></div>
+</div>
+<!-- Connector Hub -->
+<div class="relative">
+<div class="w-12 h-8 bg-[#89dceb]/10 border border-primary-container/30 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-primary-container text-sm">bolt</span>
+</div>
+<!-- Finger Icon Guide -->
+<div class="absolute -top-6 left-1/2 -translate-x-1/2">
+<span class="material-symbols-outlined text-white/40 text-2xl animate-bounce">back_hand</span>
+</div>
+</div>
+</div>
+<!-- Content Label -->
+<div class="mt-6 text-center">
+<p class="font-label-bold text-[11px] text-[#6c7086] uppercase tracking-[0.2em]">Connection Guide</p>
+<p class="text-xs text-[#a6adc8] mt-1">USB-C Sensor Hub Detected</p>
+</div>
+<!-- Abstract Decorative Lines -->
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-6xl">grid_4x4</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-[#1e1e2e]/90 backdrop-blur-2xl border-t border-[#313244] flex justify-around items-center px-4 py-3 pb-6 shadow-[0_-10px_40px_rgba(0,0,0,0.4)]">
+<a class="flex flex-col items-center justify-center text-[#89dceb] bg-[#313244] rounded-xl px-4 py-1.5 shadow-[0_0_15px_rgba(137,221,235,0.15)] transition-all duration-200 active:scale-90" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">query_stats</span>
+<span class="font-['Space_Grotesk'] text-[10px] font-medium uppercase tracking-widest">Track</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#6c7086] hover:bg-[#45475a] rounded-xl transition-all duration-200 active:scale-90 px-4 py-1.5" href="#">
+<span class="material-symbols-outlined mb-1">show_chart</span>
+<span class="font-['Space_Grotesk'] text-[10px] font-medium uppercase tracking-widest">Trends</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#6c7086] hover:bg-[#45475a] rounded-xl transition-all duration-200 active:scale-90 px-4 py-1.5" href="#">
+<span class="material-symbols-outlined mb-1">history</span>
+<span class="font-['Space_Grotesk'] text-[10px] font-medium uppercase tracking-widest">Logs</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#6c7086] hover:bg-[#45475a] rounded-xl transition-all duration-200 active:scale-90 px-4 py-1.5" href="#">
+<span class="material-symbols-outlined mb-1">person</span>
+<span class="font-['Space_Grotesk'] text-[10px] font-medium uppercase tracking-widest">Profile</span>
+</a>
+</nav>
+<!-- FAB (Suppressed for Home Screen focus on Start Measurement) -->
+</body></html>

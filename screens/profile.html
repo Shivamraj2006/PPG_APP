@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary": "#fce7e3",
+                    "surface-container-lowest": "#0d0d1c",
+                    "on-secondary-fixed-variant": "#005048",
+                    "on-primary-fixed-variant": "#004f58",
+                    "surface": "#121221",
+                    "tertiary-fixed-dim": "#d6c2be",
+                    "surface-variant": "#333344",
+                    "on-error": "#690005",
+                    "surface-tint": "#80d3e2",
+                    "secondary": "#87d5c8",
+                    "on-tertiary-fixed-variant": "#514441",
+                    "surface-container-highest": "#333344",
+                    "surface-container-high": "#292839",
+                    "secondary-fixed-dim": "#87d5c8",
+                    "surface-dim": "#121221",
+                    "on-background": "#e3e0f7",
+                    "tertiary-container": "#dfcbc7",
+                    "surface-container-low": "#1a1a2a",
+                    "outline-variant": "#3e484b",
+                    "surface-bright": "#383849",
+                    "inverse-primary": "#006875",
+                    "error-container": "#93000a",
+                    "primary-container": "#89dceb",
+                    "tertiary-fixed": "#f3deda",
+                    "secondary-container": "#02655b",
+                    "on-error-container": "#ffdad6",
+                    "on-surface-variant": "#bec8cb",
+                    "on-surface": "#e3e0f7",
+                    "surface-container": "#1e1e2e",
+                    "primary": "#bff5ff",
+                    "secondary-fixed": "#a3f1e4",
+                    "on-tertiary": "#3a2e2b",
+                    "error": "#ffb4ab",
+                    "on-secondary": "#003731",
+                    "inverse-surface": "#e3e0f7",
+                    "primary-fixed-dim": "#80d3e2",
+                    "on-tertiary-fixed": "#241917",
+                    "on-primary-container": "#00626d",
+                    "inverse-on-surface": "#2f2f40",
+                    "on-primary": "#00363d",
+                    "background": "#121221",
+                    "outline": "#889395",
+                    "on-secondary-fixed": "#00201c",
+                    "on-secondary-container": "#91dfd2",
+                    "on-tertiary-container": "#645552",
+                    "primary-fixed": "#9cefff",
+                    "on-primary-fixed": "#001f24"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xs": "4px",
+                    "lg": "24px",
+                    "sm": "8px",
+                    "xl": "32px",
+                    "unit": "4px",
+                    "2xl": "48px",
+                    "md": "16px",
+                    "margin-mobile": "20px",
+                    "gutter-mobile": "12px"
+            },
+            "fontFamily": {
+                    "data-mono": ["Space Grotesk"],
+                    "headline-md": ["Space Grotesk"],
+                    "body-md": ["Inter"],
+                    "label-bold": ["Inter"],
+                    "headline-lg": ["Space Grotesk"],
+                    "display-bold": ["Space Grotesk"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "label-bold": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "display-bold": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #121221;
+            color: #e3e0f7;
+            -webkit-font-smoothing: antialiased;
+        }
+        .glass-card {
+            background: rgba(49, 50, 68, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(137, 235, 222, 0.1);
+        }
+        .glowing-cyan {
+            text-shadow: 0 0 10px rgba(137, 220, 235, 0.5);
+        }
+        .glow-border:focus-within {
+            box-shadow: 0 0 15px rgba(137, 220, 235, 0.3);
+            border-color: #89dceb;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-body-md pb-24">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-5 h-16 bg-[#1e1e2e]/80 backdrop-blur-lg border-b border-[#313244]">
+<div class="flex items-center gap-4">
+<button class="active:scale-95 transition-transform text-[#89dceb]">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-['Space_Grotesk'] font-bold tracking-wider text-xl font-black tracking-tighter text-[#89dceb] drop-shadow-[0_0_10px_rgba(137,220,235,0.3)]">GLUCOWAVE</h1>
+</div>
+<button class="active:scale-95 transition-transform text-[#89dceb]">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</header>
+<main class="mt-20 px-margin-mobile max-w-2xl mx-auto space-y-xl">
+<!-- User Section -->
+<section class="flex flex-col items-center py-lg">
+<div class="relative group">
+<div class="w-32 h-32 rounded-full p-1 bg-gradient-to-tr from-[#89dceb] to-transparent shadow-[0_0_30px_rgba(137,220,235,0.2)]">
+<img alt="Alex Rivera Profile" class="w-full h-full object-cover rounded-full border-4 border-[#121221]" data-alt="Close-up professional portrait of a confident man in his 30s with short hair, soft studio lighting on dark blue background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwWOs2sKAvF2MGztzf_or_rn14OxDgbJ-n5catZ43eTMu343eQlb220dwkoWdVjxefpVMjjKS9s1IePA9fTyKiGE587IL4mGb3iH-Ko8bdxuGPU-9F_eAQS9XR55Qv1iG45mrFpRdxsgzCMCKdxfdrjaEBHxtAoI8FQA7OR0qBHEO-QumcnWEA8N3-gGYJbnCXGRLiy_MQLcVjMu3S0pnsaRJaYf9BP1-lbL1BOtNFbORC9l8zRgVo731eKw2sU6tRFTMnrph2GWF6"/>
+</div>
+<button class="absolute bottom-1 right-1 bg-primary-container text-on-primary-container p-2 rounded-full shadow-lg active:scale-90 transition-all border-2 border-[#121221]">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+</div>
+<h2 class="mt-md font-display-bold text-headline-lg text-[#89dceb] glowing-cyan">Alex Rivera</h2>
+<p class="text-on-surface-variant font-label-bold">PREMIUM MEMBER • ID: 88241</p>
+</section>
+<!-- Information Bento Grid -->
+<section class="grid grid-cols-2 gap-md">
+<div class="glass-card col-span-2 p-md rounded-xl flex items-center gap-md">
+<div class="bg-surface-container-high p-sm rounded-lg text-[#89dceb]">
+<span class="material-symbols-outlined">call</span>
+</div>
+<div>
+<p class="text-xs text-on-surface-variant uppercase tracking-widest font-bold">Phone</p>
+<p class="font-data-mono text-body-lg text-[#89dceb]">+1 (555) 012-3456</p>
+</div>
+</div>
+<div class="glass-card p-md rounded-xl space-y-xs">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-secondary">monitor_weight</span>
+<span class="text-[10px] bg-secondary/10 text-secondary px-2 py-0.5 rounded-full font-bold">-2kg</span>
+</div>
+<p class="text-xs text-on-surface-variant uppercase tracking-widest font-bold">Weight</p>
+<p class="font-data-mono text-headline-md text-on-surface">72 <span class="text-sm font-normal">kg</span></p>
+</div>
+<div class="glass-card p-md rounded-xl space-y-xs">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-[#89dceb]">straighten</span>
+</div>
+<p class="text-xs text-on-surface-variant uppercase tracking-widest font-bold">Height</p>
+<p class="font-data-mono text-headline-md text-on-surface">178 <span class="text-sm font-normal">cm</span></p>
+</div>
+<div class="glass-card p-md rounded-xl space-y-xs col-span-2 flex justify-between items-center bg-gradient-to-r from-[#313244] to-transparent">
+<div>
+<p class="text-xs text-on-surface-variant uppercase tracking-widest font-bold">Blood Type</p>
+<p class="font-display-bold text-headline-lg text-error glowing-cyan">O+</p>
+</div>
+<div class="h-12 w-12 rounded-full border border-[#313244] flex items-center justify-center">
+<span class="material-symbols-outlined text-error text-3xl" style="font-variation-settings: 'FILL' 1;">bloodtype</span>
+</div>
+</div>
+</section>
+<!-- Action Buttons -->
+<section class="space-y-sm">
+<h3 class="text-on-surface-variant font-label-bold px-2 uppercase tracking-tighter">Medical Management</h3>
+<button class="w-full glass-card p-lg rounded-xl flex items-center justify-between hover:bg-surface-variant/50 transition-colors group">
+<div class="flex items-center gap-md">
+<div class="bg-surface-container-high p-sm rounded-lg text-primary">
+<span class="material-symbols-outlined">history_edu</span>
+</div>
+<span class="font-headline-md text-body-lg">Medical History</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:translate-x-1 transition-transform">chevron_right</span>
+</button>
+<button class="w-full glass-card p-lg rounded-xl flex items-center justify-between hover:bg-surface-variant/50 transition-colors group">
+<div class="flex items-center gap-md">
+<div class="bg-surface-container-high p-sm rounded-lg text-error">
+<span class="material-symbols-outlined">contact_emergency</span>
+</div>
+<span class="font-headline-md text-body-lg">Emergency Contacts</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:translate-x-1 transition-transform">chevron_right</span>
+</button>
+<button class="w-full glass-card p-lg rounded-xl flex items-center justify-between hover:bg-surface-variant/50 transition-colors group">
+<div class="flex items-center gap-md">
+<div class="bg-surface-container-high p-sm rounded-lg text-secondary">
+<span class="material-symbols-outlined">settings_applications</span>
+</div>
+<span class="font-headline-md text-body-lg">App Settings</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:translate-x-1 transition-transform">chevron_right</span>
+</button>
+</section>
+<!-- Danger Zone -->
+<section class="pt-lg">
+<button class="w-full py-md text-error/60 font-label-bold hover:text-error transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">logout</span>
+                Sign Out of GlucoWave
+            </button>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center h-20 pb-safe px-4 bg-[#1e1e2e]/80 backdrop-blur-lg border-t border-[#313244] shadow-[0_-4px_20px_rgba(0,0,0,0.4)] rounded-t-lg">
+<a class="flex flex-col items-center justify-center text-[#6c7086] hover:text-[#94e2d5] active:scale-90 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-['Space_Grotesk'] text-[10px] font-medium mt-1">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#6c7086] hover:text-[#94e2d5] active:scale-90 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">show_chart</span>
+<span class="font-['Space_Grotesk'] text-[10px] font-medium mt-1">Trends</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#6c7086] hover:text-[#94e2d5] active:scale-90 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">event_note</span>
+<span class="font-['Space_Grotesk'] text-[10px] font-medium mt-1">Logs</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#89dceb] drop-shadow-[0_0_8px_rgba(137,220,235,0.5)] active:scale-90 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-['Space_Grotesk'] text-[10px] font-medium mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

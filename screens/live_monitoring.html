@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GLUCOWAVE | Live Monitoring</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#514441",
+                        "on-primary": "#00363d",
+                        "surface-container-highest": "#333344",
+                        "tertiary": "#fce7e3",
+                        "on-tertiary-fixed": "#241917",
+                        "secondary-fixed-dim": "#87d5c8",
+                        "primary": "#bff5ff",
+                        "on-secondary": "#003731",
+                        "tertiary-fixed-dim": "#d6c2be",
+                        "surface": "#121221",
+                        "on-error": "#690005",
+                        "surface-container-high": "#292839",
+                        "error-container": "#93000a",
+                        "surface-container-lowest": "#0d0d1c",
+                        "primary-container": "#89dceb",
+                        "surface-variant": "#333344",
+                        "on-secondary-fixed": "#00201c",
+                        "surface-dim": "#121221",
+                        "on-secondary-fixed-variant": "#005048",
+                        "outline-variant": "#3e484b",
+                        "surface-container-low": "#1a1a2a",
+                        "inverse-on-surface": "#2f2f40",
+                        "inverse-surface": "#e3e0f7",
+                        "on-primary-container": "#00626d",
+                        "primary-fixed-dim": "#80d3e2",
+                        "outline": "#889395",
+                        "inverse-primary": "#006875",
+                        "on-tertiary-container": "#645552",
+                        "surface-tint": "#80d3e2",
+                        "surface-container": "#1e1e2e",
+                        "surface-bright": "#383849",
+                        "error": "#ffb4ab",
+                        "secondary-fixed": "#a3f1e4",
+                        "on-tertiary": "#3a2e2b",
+                        "primary-fixed": "#9cefff",
+                        "secondary": "#87d5c8",
+                        "on-surface-variant": "#bec8cb",
+                        "tertiary-fixed": "#f3deda",
+                        "on-surface": "#e3e0f7",
+                        "on-background": "#e3e0f7",
+                        "on-primary-fixed": "#001f24",
+                        "secondary-container": "#02655b",
+                        "on-secondary-container": "#91dfd2",
+                        "on-error-container": "#ffdad6",
+                        "background": "#121221",
+                        "on-primary-fixed-variant": "#004f58",
+                        "tertiary-container": "#dfcbc7"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "2xl": "48px",
+                        "sm": "8px",
+                        "gutter-mobile": "12px",
+                        "lg": "24px",
+                        "xl": "32px",
+                        "margin-mobile": "20px",
+                        "md": "16px",
+                        "xs": "4px"
+                    },
+                    "fontFamily": {
+                        "label-bold": ["Inter"],
+                        "headline-md": ["Space Grotesk"],
+                        "data-mono": ["Space Grotesk"],
+                        "headline-lg": ["Space Grotesk"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-bold": ["Space Grotesk"]
+                    },
+                    "fontSize": {
+                        "label-bold": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                        "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "display-bold": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .ppg-grid {
+            background-image: 
+                linear-gradient(to right, rgba(137, 225, 235, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(137, 225, 235, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .heartbeat-line {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: dash 5s linear infinite;
+        }
+        @keyframes dash {
+            to { stroke-dashoffset: 0; }
+        }
+        .pulse-ring {
+            animation: ring-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes ring-pulse {
+            0% { transform: scale(0.8); opacity: 0.8; }
+            100% { transform: scale(2.5); opacity: 0; }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col overflow-x-hidden">
+<!-- Top Navigation Bar -->
+<header class="bg-[#1e1e2e]/80 backdrop-blur-lg border-b border-[#313244] fixed top-0 w-full z-50 flex justify-between items-center px-5 h-16">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#89dceb]" data-icon="waves">waves</span>
+<span class="font-['Space_Grotesk'] font-bold tracking-wider text-xl font-black text-[#89dceb] drop-shadow-[0_0_8px_rgba(137,225,235,0.5)]">GLUCOWAVE</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#89dceb] active:scale-95 duration-150 cursor-pointer" data-icon="sensors">sensors</span>
+</div>
+</header>
+<main class="flex-grow pt-16 pb-24 px-margin-mobile flex flex-col gap-xl">
+<!-- Error State Banner (Initially Hidden/Static Placeholder) -->
+<div class="mt-md bg-error-container/20 border border-error/30 rounded-xl px-md py-sm flex items-center gap-sm">
+<span class="material-symbols-outlined text-error" data-icon="warning">warning</span>
+<span class="font-label-bold text-error text-sm uppercase tracking-wider">⚠️ CHECK FINGER PLACEMENT</span>
+</div>
+<!-- PPG Heartbeat Waveform Section -->
+<section class="relative h-48 w-full bg-surface-container rounded-2xl overflow-hidden shadow-[inset_0_2px_10px_rgba(0,0,0,0.5)] border border-[#313244]">
+<div class="absolute inset-0 ppg-grid"></div>
+<svg class="absolute inset-0 w-full h-full" preserveaspectratio="none" viewbox="0 0 1000 200">
+<!-- PPG Waveform Path -->
+<path class="heartbeat-line" d="M0,100 Q25,100 50,80 T100,60 T150,140 T200,100 T250,100 T300,80 T350,60 T400,140 T450,100 T500,100 T550,80 T600,60 T650,140 T700,100 T750,100 T800,80 T850,60 T900,140 T950,100 T1000,100" fill="none" stroke="#89dceb" stroke-width="3"></path>
+<!-- Area Fill -->
+<path d="M0,100 Q25,100 50,80 T100,60 T150,140 T200,100 T250,100 T300,80 T350,60 T400,140 T450,100 T500,100 T550,80 T600,60 T650,140 T700,100 T750,100 T800,80 T850,60 T900,140 T950,100 T1000,100 V200 H0 Z" fill="url(#gradient-cyan)" opacity="0.1"></path>
+<defs>
+<lineargradient id="gradient-cyan" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" style="stop-color:#89dceb;stop-opacity:1"></stop>
+<stop offset="100%" style="stop-color:#89dceb;stop-opacity:0"></stop>
+</lineargradient>
+</defs>
+</svg>
+<div class="absolute top-4 left-4 flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-[#89dceb] animate-pulse"></div>
+<span class="font-label-bold text-[#89dceb] text-xs uppercase">Live PPG Stream</span>
+</div>
+<div class="absolute bottom-4 right-4 text-right">
+<span class="font-data-mono text-primary-container text-2xl">72</span>
+<span class="font-label-bold text-outline text-[10px] block uppercase">BPM</span>
+</div>
+</section>
+<!-- Monitoring Timer Section -->
+<section class="flex flex-col items-center justify-center py-xl">
+<div class="text-center">
+<span class="font-label-bold text-outline text-xs uppercase tracking-widest mb-sm block">Sampling Period</span>
+<div class="font-display-bold text-[#89dceb] text-[84px] leading-none drop-shadow-[0_0_30px_rgba(137,225,235,0.4)]">
+                    00:34
+                </div>
+<div class="mt-md flex justify-center gap-2">
+<span class="px-3 py-1 bg-surface-container-high rounded-full font-label-bold text-[#89dceb] text-[10px] uppercase">Stable Signal</span>
+<span class="px-3 py-1 bg-surface-container-high rounded-full font-label-bold text-outline text-[10px] uppercase">Processing...</span>
+</div>
+</div>
+</section>
+<!-- Instruction / Sensor Visualization Section -->
+<section class="flex-grow flex flex-col items-center justify-center pb-12">
+<div class="relative w-64 h-64 flex items-center justify-center">
+<!-- Outer Pulse Rings -->
+<div class="absolute w-40 h-40 border-2 border-primary-container/20 rounded-full pulse-ring" style="animation-delay: 0s;"></div>
+<div class="absolute w-40 h-40 border-2 border-primary-container/20 rounded-full pulse-ring" style="animation-delay: 0.6s;"></div>
+<div class="absolute w-40 h-40 border-2 border-primary-container/20 rounded-full pulse-ring" style="animation-delay: 1.2s;"></div>
+<!-- Sensor Hardware UI -->
+<div class="relative w-32 h-32 bg-surface-container-highest rounded-3xl border-4 border-[#45475a] flex items-center justify-center shadow-2xl">
+<div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center overflow-hidden shadow-[inset_0_0_20px_rgba(0,0,0,0.8)] border-2 border-[#89dceb]/30">
+<div class="w-4 h-4 rounded-full bg-red-500 blur-[2px] opacity-40"></div>
+</div>
+<!-- Instruction Finger Graphic Overlay -->
+<div class="absolute -bottom-8 transform scale-110 opacity-90">
+<span class="material-symbols-outlined text-6xl text-[#e3e0f7] drop-shadow-lg" data-icon="touch_app" data-weight="fill" style="font-variation-settings: 'FILL' 1;">touch_app</span>
+</div>
+</div>
+</div>
+<p class="text-on-surface-variant text-center max-w-[240px] mt-lg font-body-md">
+                Keep your finger pressed firmly against the optical sensor until the timer completes.
+            </p>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="bg-[#1e1e2e]/90 backdrop-blur-2xl border-t border-[#313244] fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 pb-6 shadow-[0_-10px_40px_rgba(0,0,0,0.4)]">
+<div class="flex flex-col items-center justify-center text-[#89dceb] bg-[#313244] rounded-xl px-4 py-1.5 shadow-[0_0_15px_rgba(137,225,235,0.15)]">
+<span class="material-symbols-outlined" data-icon="query_stats">query_stats</span>
+<span class="font-['Space_Grotesk'] text-[10px] font-medium uppercase tracking-widest mt-1">Track</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#6c7086] hover:bg-[#45475a] rounded-xl transition-all cursor-pointer">
+<span class="material-symbols-outlined" data-icon="Show_chart">show_chart</span>
+<span class="font-['Space_Grotesk'] text-[10px] font-medium uppercase tracking-widest mt-1">Trends</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#6c7086] hover:bg-[#45475a] rounded-xl transition-all cursor-pointer">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="font-['Space_Grotesk'] text-[10px] font-medium uppercase tracking-widest mt-1">Logs</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#6c7086] hover:bg-[#45475a] rounded-xl transition-all cursor-pointer">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['Space_Grotesk'] text-[10px] font-medium uppercase tracking-widest mt-1">Profile</span>
+</div>
+</nav>
+<!-- Decorative Elements for Depth -->
+<div class="fixed top-1/4 -right-24 w-64 h-64 bg-[#89dceb]/10 blur-[120px] rounded-full -z-10"></div>
+<div class="fixed bottom-1/4 -left-24 w-64 h-64 bg-[#89dceb]/5 blur-[120px] rounded-full -z-10"></div>
+</body></html>
